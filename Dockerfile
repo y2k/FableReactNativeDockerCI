@@ -1,11 +1,11 @@
 FROM microsoft/dotnet:2.1-sdk
 
 # node, yarn
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
-    apt-get install -y nodejs \
-    apt-get install -y build-essential \
-    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
-    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN apt-get install -y nodejs \
+    apt-get install -y build-essential
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
     apt-get update && apt-get install yarn
 
 # mono
